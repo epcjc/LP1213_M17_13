@@ -15,5 +15,10 @@ namespace Projeto17
         {
             InitializeComponent();
         }
+
+        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
