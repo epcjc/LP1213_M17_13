@@ -20,5 +20,31 @@ namespace Projeto17
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'database1DataSet.Tabela_Clientes' table. You can move, or remove it, as needed.
+            this.tabela_ClientesTableAdapter.Fill(this.database1DataSet.Tabela_Clientes);
+            
+            
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tabela_ClientesTableAdapter.FillBy(this.database1DataSet.Tabela_Clientes);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void bindingNavigatorMovePreviousItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
