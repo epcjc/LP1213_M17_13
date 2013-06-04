@@ -40,16 +40,46 @@ namespace Projeto17
         private void button1_Click(object sender, EventArgs e)
         {
             int rest;
-            rest = (int)this.loginTableAdapter.checkLogin(this.textBox1.text, this.textBox2.text);
-            if (rest ! = 1)
-
+            rest = (int)this.loginTableAdapter.checkLogin(this.database1DataSet.login, this.textBox1.Text, this.textBox2.Text);
+            if (rest != 1)
             {
-            MenssageBox.show("Acesso negado", "Erro a fazer login", MessageBoxButtons.OK);
+                MessageBox.Show("Acesso negado", "Erro a fazer login", MessageBoxButtons.OK);
 
-            
-        }
+            }
             else
+            {
+                Form1 frm = new Form1();
+                frm.Show();
+            }
+        }
+
+        private void loginBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.loginBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.database1DataSet);
+
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'database1DataSet.login' table. You can move, or remove it, as needed.
+            this.loginTableAdapter.Fill(this.database1DataSet.login);
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
-        form1 frm = Form1();
-        frm.show();
 }
+
